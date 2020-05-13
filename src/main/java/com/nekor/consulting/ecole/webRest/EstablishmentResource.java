@@ -25,7 +25,7 @@ public class EstablishmentResource {
     }
 
     @DeleteMapping("{establishmentId}")
-    private void createEstablishment(@PathVariable(name = "establishmentId") String establishmentId) {
+    private void deleteEstablishment(@PathVariable(name = "establishmentId") String establishmentId) {
         establishmentRepository.deleteById(establishmentId);
     }
 
@@ -37,6 +37,7 @@ public class EstablishmentResource {
     private List<Establishment> findEstablishmentId() {
         return establishmentRepository.findAll();
     }
+
     @GetMapping("/byCity")
     private Optional<Establishment> findEstablishmentByCity(@RequestParam(name = "city") String city) {
         return  establishmentRepository.findByCity(city);
