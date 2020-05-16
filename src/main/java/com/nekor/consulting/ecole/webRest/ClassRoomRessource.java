@@ -46,11 +46,11 @@ public class ClassRoomRessource {
     }
 
     @GetMapping("/utilisateur")
-    private ResponseEntity<List<ClassRoom>> getClassRoomByUser_id(@RequestParam(name = "id") String id) {
+    private ResponseEntity<List<ClassRoom>> getClassRoomByUserId(@RequestParam(name = "id") String id) {
         return ResponseEntity.
                 ok().
                 contentType(MediaType.APPLICATION_JSON).
-                body( classRoomRepository.getClassRoomByUser_id(id));
+                body( classRoomRepository.getClassRoomByUserId(id));
     }
 
 
