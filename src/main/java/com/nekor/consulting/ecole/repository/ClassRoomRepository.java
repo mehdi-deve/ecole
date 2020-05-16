@@ -13,6 +13,6 @@ public interface ClassRoomRepository extends JpaRepository<ClassRoom, String>, J
     public List<ClassRoom> getClassRoomByEtablissement_id(String etablissement_id);
 
     @Query(value = "SELECT * FROM ecole.classe where ecole.classe.user_id=?1", nativeQuery = true)
-    public List<ClassRoom> getClassRoomByUser_id(String user_id);
+    public List<ClassRoom> getClassRoomByUserId(String user_id);
 
 }
