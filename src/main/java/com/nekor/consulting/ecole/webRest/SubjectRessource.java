@@ -1,7 +1,6 @@
 package com.nekor.consulting.ecole.webRest;
 
 
-import com.nekor.consulting.ecole.model.ClassRoom;
 import com.nekor.consulting.ecole.model.Subject;
 import com.nekor.consulting.ecole.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +31,7 @@ public class SubjectRessource {
 
     @GetMapping
     private Optional<Subject> findSubjectById(@RequestParam(name = "subjectId") String subjectId) {
-        return  subjectRepository.findById(subjectId);
+        return subjectRepository.findById(subjectId);
     }
+
 }
