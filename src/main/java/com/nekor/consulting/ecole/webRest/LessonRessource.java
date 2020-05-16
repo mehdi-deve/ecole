@@ -6,10 +6,17 @@ import com.nekor.consulting.ecole.model.Lesson;
 import com.nekor.consulting.ecole.repository.ClassRoomRepository;
 import com.nekor.consulting.ecole.repository.LessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -40,10 +47,20 @@ public class LessonRessource {
     }
 
     @GetMapping("/classe")
-    private ResponseEntity<List<Lesson>> getLessonByClasse_id(@RequestParam(name = "id") String id) {
+    private ResponseEntity<List<Lesson>> getLessonByClasseId(@RequestParam(name = "id") String id) {
         return ResponseEntity.
                 ok().
                 contentType(MediaType.APPLICATION_JSON).
-                body( lessonRepository.getLessonByClasse_id(id));
+                body( lessonRepository.getLessonByClasseId(id));
+    }
+
+    @GetMapping("/nextCours")
+    private List<Lesson> getNextLesson(){
+        return lessonRepository.getNextCours();
+    }
+
+    @GetMapping("/lastCours")
+    private List<Lesson> getLastLesson(){
+        return lessonRepository.getLastCours();
     }
 }
