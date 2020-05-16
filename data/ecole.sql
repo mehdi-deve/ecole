@@ -133,6 +133,7 @@ CREATE TABLE `eleve` (
 
 LOCK TABLES `eleve` WRITE;
 /*!40000 ALTER TABLE `eleve` DISABLE KEYS */;
+INSERT INTO `eleve` VALUES ('1','1','2');
 /*!40000 ALTER TABLE `eleve` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +159,7 @@ CREATE TABLE `etablissement` (
 
 LOCK TABLES `etablissement` WRITE;
 /*!40000 ALTER TABLE `etablissement` DISABLE KEYS */;
-INSERT INTO `etablissement` VALUES ('1','Math','fes','fes');
+INSERT INTO `etablissement` VALUES ('1','ENSA','fes','fes'),('2','NECG','fes','fes');
 /*!40000 ALTER TABLE `etablissement` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,7 +172,10 @@ DROP TABLE IF EXISTS `professeur`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `professeur` (
   `id` varchar(56) NOT NULL,
-  PRIMARY KEY (`id`)
+  `utilisateur_id` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `utilisateur_id_idx` (`utilisateur_id`),
+  CONSTRAINT `utilisateur_id` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateur` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -181,7 +185,7 @@ CREATE TABLE `professeur` (
 
 LOCK TABLES `professeur` WRITE;
 /*!40000 ALTER TABLE `professeur` DISABLE KEYS */;
-INSERT INTO `professeur` VALUES ('1'),('2'),('3');
+INSERT INTO `professeur` VALUES ('1','1'),('2','2'),('3','3');
 /*!40000 ALTER TABLE `professeur` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -326,6 +330,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` VALUES ('Admin'),('Moderateur'),('Utilisateur');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,7 +363,7 @@ CREATE TABLE `utilisateur` (
 
 LOCK TABLES `utilisateur` WRITE;
 /*!40000 ALTER TABLE `utilisateur` DISABLE KEYS */;
-INSERT INTO `utilisateur` VALUES ('1','Douri','Mehdi','123','Professeur','1','1996-12-11');
+INSERT INTO `utilisateur` VALUES ('1','Douri','Mehdi','123','Professeur','1','1996-12-11'),('2','Hamza','Hamza','1234','Eleve','1','1996-11-17'),('3','Ahmed','Ahmed','1234','Professeur','1','1995-12-24');
 /*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -398,4 +403,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-16 22:44:50
+-- Dump completed on 2020-05-16 23:10:53
