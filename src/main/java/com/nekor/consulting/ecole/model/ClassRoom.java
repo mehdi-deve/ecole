@@ -19,6 +19,12 @@ public class ClassRoom implements Serializable {
     @Column(name = "nom")
     private String name;
 
+    @Column(name = "etablissement_id")
+    private String etablissement_id;
+
+    @Column(name = "user_id")
+    private String user_id;
+
     public String getId() {
         return id;
     }
