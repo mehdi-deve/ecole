@@ -54,6 +54,14 @@ public class LessonRessource {
                 body( lessonRepository.getLessonByClasseId(id));
     }
 
+    @GetMapping("/professeur")
+    private ResponseEntity<List<Lesson>> getLessonByProfesseurId(@RequestParam(name = "id") String id) {
+        return ResponseEntity.
+                ok().
+                contentType(MediaType.APPLICATION_JSON).
+                body( lessonRepository.getLessonByProfesseurId(id));
+    }
+
     @GetMapping("/nextCours")
     private List<Lesson> getNextLesson(){
         return lessonRepository.getNextCours();
