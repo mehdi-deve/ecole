@@ -13,8 +13,15 @@ public interface LessonRepository extends JpaRepository<Lesson, String>, JpaSpec
     @Query(value = "SELECT * FROM ecole.cours where ecole.cours.classe_id=?1", nativeQuery = true)
     public List<Lesson> getLessonByClasseId(String classe_id);
 
-    @Query(value = "SELECT * FROM ecole.cours where ecole.cours.professeur_id?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM ecole.cours where ecole.cours.professeur_id=?1", nativeQuery = true)
     public List<Lesson> getLessonByProfesseurId(String professeur_id);
+
+    @Query(value="SELECT * FROM ecole.cours, ecole.eleve WHERE ecole.cours.classe_id=ecole.eleve.classe_id AND ecole.eleve.id=?1",nativeQuery = true)
+    public List<Lesson> getLessonByEleveId(String eleve_id);
+
+    @Query(value="SELECT * FROM ecole.cours, ecole.eleve WHERE ecole.cours.classe_id=ecole.eleve.classe_id " +
+            "AND ecole.eleve.id=?1 AND ecole.cours.matiere_id=?2",nativeQuery = true)
+    public List<Lesson> getLessonByEleveIdAndMatiereId(String eleve_id, String matiere_id);
 
     @Query(value = "SELECT * FROM ecole.cours WHERE ecole.cours.date_creation > CURDATE()", nativeQuery = true)
     List<Lesson> getNextCours();
