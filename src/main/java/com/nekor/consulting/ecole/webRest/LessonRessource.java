@@ -89,7 +89,7 @@ public class LessonRessource {
     @GetMapping(value = "/EleveAndDate", params = {"eleve_id", "matiere_id", "creationDate"})
     private ResponseEntity<List<Lesson>> getLessonByEleveIdAndMatiereIdAndDate(@RequestParam(name = "eleve_id") String eleve_id,
                                                                                @RequestParam(name = "matiere_id") String matiere_id,
-                                                                               @RequestParam(name = "creationDate") Date creationDate    ) {
+                                                                               @RequestParam(name = "creationDate") Date creationDate) {
         return ResponseEntity.
                 ok().
                 contentType(MediaType.APPLICATION_JSON).
