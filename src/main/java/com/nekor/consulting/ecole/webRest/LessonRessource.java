@@ -62,6 +62,22 @@ public class LessonRessource {
                 body( lessonRepository.getLessonByProfesseurId(id));
     }
 
+    @GetMapping("/eleve")
+    private ResponseEntity<List<Lesson>> getLessonByEleveId(@RequestParam(name = "id") String id) {
+        return ResponseEntity.
+                ok().
+                contentType(MediaType.APPLICATION_JSON).
+                body( lessonRepository.getLessonByEleveId(id));
+    }
+
+    @GetMapping(value = "/EleveAndMateriel", params = {"eleve_id", "matiere_id"})
+    private ResponseEntity<List<Lesson>> getLessonByEleveIdAndMatiereId(@RequestParam(name = "eleve_id") String eleve_id,  @RequestParam(name = "matiere_id") String matiere_id) {
+        return ResponseEntity.
+                ok().
+                contentType(MediaType.APPLICATION_JSON).
+                body( lessonRepository.getLessonByEleveIdAndMatiereId(eleve_id, matiere_id));
+    }
+
     @GetMapping("/nextCours")
     private List<Lesson> getNextLesson(){
         return lessonRepository.getNextCours();
