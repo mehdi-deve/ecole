@@ -41,7 +41,7 @@ CREATE TABLE `classe` (
 
 LOCK TABLES `classe` WRITE;
 /*!40000 ALTER TABLE `classe` DISABLE KEYS */;
-INSERT INTO `classe` VALUES ('1','Math','1',NULL);
+INSERT INTO `classe` VALUES ('1','Math','1',NULL),('2','Math3','1',NULL);
 /*!40000 ALTER TABLE `classe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,7 +75,7 @@ CREATE TABLE `cours` (
 
 LOCK TABLES `cours` WRITE;
 /*!40000 ALTER TABLE `cours` DISABLE KEYS */;
-INSERT INTO `cours` VALUES ('1','Math','1','1','1','2020-05-16'),('2','Math2','1','1','1','2020-05-17'),('3','Math3','1','1','1','2020-05-17'),('4','Math4','1','1','1','2020-05-18');
+INSERT INTO `cours` VALUES ('1','Math','1','1','1','2020-05-16'),('2','Math2','1','1','1','2020-05-17'),('3','Math3','1','1','1','2020-05-17'),('4','Math4','1','1','2','2020-05-18');
 /*!40000 ALTER TABLE `cours` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,7 +133,7 @@ CREATE TABLE `eleve` (
 
 LOCK TABLES `eleve` WRITE;
 /*!40000 ALTER TABLE `eleve` DISABLE KEYS */;
-INSERT INTO `eleve` VALUES ('1','1','2');
+INSERT INTO `eleve` VALUES ('1','1','2'),('2','2','1');
 /*!40000 ALTER TABLE `eleve` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -403,4 +403,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-16 23:10:53
+-- Dump completed on 2020-05-17 16:55:11
