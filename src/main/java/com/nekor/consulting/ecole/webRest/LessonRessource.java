@@ -78,6 +78,24 @@ public class LessonRessource {
                 body( lessonRepository.getLessonByEleveIdAndMatiereId(eleve_id, matiere_id));
     }
 
+    @GetMapping(value = "/EleveAndDate", params = {"eleve_id", "creationDate"})
+    private ResponseEntity<List<Lesson>> getLessonByEleveIdAndDate(@RequestParam(name = "eleve_id") String eleve_id,  @RequestParam(name = "creationDate") Date creationDate) {
+        return ResponseEntity.
+                ok().
+                contentType(MediaType.APPLICATION_JSON).
+                body( lessonRepository.getLessonByEleveIdAndDate(eleve_id, creationDate));
+    }
+
+    @GetMapping(value = "/EleveAndDate", params = {"eleve_id", "matiere_id", "creationDate"})
+    private ResponseEntity<List<Lesson>> getLessonByEleveIdAndMatiereIdAndDate(@RequestParam(name = "eleve_id") String eleve_id,
+                                                                               @RequestParam(name = "matiere_id") String matiere_id,
+                                                                               @RequestParam(name = "creationDate") String creationDate    ) {
+        return ResponseEntity.
+                ok().
+                contentType(MediaType.APPLICATION_JSON).
+                body( lessonRepository.getLessonByEleveIdAndMatiereIdAndDate(eleve_id, matiere_id, creationDate));
+    }
+
     @GetMapping("/nextCours")
     private List<Lesson> getNextLesson(){
         return lessonRepository.getNextCours();
