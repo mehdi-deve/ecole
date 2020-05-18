@@ -42,7 +42,7 @@ public class ClassRoomRessource {
         return ResponseEntity.
                 ok().
                 contentType(MediaType.APPLICATION_JSON).
-                body( classRoomRepository.getClassRoomByEtablissement_id(id));
+                body( classRoomRepository.getClassRoomByEtablissementId(id));
     }
 
     @GetMapping("/utilisateur")
