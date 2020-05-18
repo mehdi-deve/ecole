@@ -10,7 +10,7 @@ import java.util.List;
 public interface ClassRoomRepository extends JpaRepository<ClassRoom, String>, JpaSpecificationExecutor<ClassRoom> {
 
     @Query(value = "SELECT * FROM ecole.classe where ecole.classe.etablissement_id=?1", nativeQuery = true)
-    public List<ClassRoom> getClassRoomByEtablissement_id(String etablissement_id);
+    public List<ClassRoom> getClassRoomByEtablissementId(String etablissement_id);
 
     @Query(value = "SELECT * FROM ecole.classe where ecole.classe.user_id=?1", nativeQuery = true)
     public List<ClassRoom> getClassRoomByUserId(String user_id);
