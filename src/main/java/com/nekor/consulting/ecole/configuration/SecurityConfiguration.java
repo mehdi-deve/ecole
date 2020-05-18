@@ -79,30 +79,28 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-//                 http.authorizeRequests().anyRequest().permitAll();
-//        http
-//                .csrf()
-//                .disable()
-//                    .addFilter(corsFilter)
-//                    .exceptionHandling()
-//                    .authenticationEntryPoint(problemSupport)
-//                    .accessDeniedHandler(problemSupport)
-//                .and()
-//                .formLogin()
-//                .loginProcessingUrl("/api/authentif")
-//                .usernameParameter("email")
-//                .successHandler(restAuthenticationSuccessHandler())
-//                .failureHandler(resAuthenticationFailureHandler())
-//                .permitAll()
-//                .and()
-//                .logout()
-//                .logoutUrl("/api/logout")
-//                .logoutSuccessHandler(restLogoutSuccessHandler())
-//                .permitAll()
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/api/**").permitAll()
-//                .antMatchers("/api/classroom/**").permitAll()
-//                .antMatchers("/api/admin").hasAnyAuthority("ADMIN", "COMMERCIEL");
+//               http.authorizeRequests().anyRequest().permitAll();
+        http
+                .csrf()
+                .disable()
+                    .addFilter(corsFilter)
+                    .exceptionHandling()
+                    .authenticationEntryPoint(problemSupport)
+                    .accessDeniedHandler(problemSupport)
+                .and()
+                .formLogin()
+                .loginProcessingUrl("/api/authentif")
+                .usernameParameter("email")
+                .successHandler(restAuthenticationSuccessHandler())
+                .failureHandler(resAuthenticationFailureHandler())
+                .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/api/logout")
+                .logoutSuccessHandler(restLogoutSuccessHandler())
+                .permitAll()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/api/**").permitAll();
     }
 }
